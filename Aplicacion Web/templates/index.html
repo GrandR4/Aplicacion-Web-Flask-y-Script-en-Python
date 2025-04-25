@@ -1,1 +1,21 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Archivos</title>
+</head>
+<body>
+    <h1>Subir y Leer Archivos</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">Subir Archivo</button>
+    </form>
+    <h2>Archivos Subidos:</h2>
+    <ul>
+        {% for archivo in archivos %}
+        <li><a href="{{ url_for('uploaded_file', filename=archivo) }}">{{ archivo }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
